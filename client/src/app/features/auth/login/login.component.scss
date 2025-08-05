@@ -1,0 +1,48 @@
+// A more modern and visually appealing style for the login page
+
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  // Add a subtle gradient background
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+mat-card {
+  width: 100%;
+  max-width: 400px;
+  padding: 2rem;
+  // Add a shadow for a "floating" effect
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  border-radius: 10px; // Softer corners
+}
+
+mat-card-title {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+button {
+  width: 100%;
+  padding: 1rem 0;
+  font-size: 1rem;
+  margin-top: 1rem;
+  // Add a transition for a smooth hover effect
+  transition: background-color 0.2s ease-in-out;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+.error-message {
+  color: #f44336; // Material's standard error color
+  text-align: center;
+  margin-top: 1rem;
+}

@@ -1,0 +1,39 @@
+.session-container {
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
+  background-color: #f5f5f5;
+  min-height: calc(100vh - 64px); // Full height minus navbar
+}
+
+mat-card {
+  width: 100%;
+  max-width: 800px;
+}
+
+mat-card-content {
+  display: flex;
+  flex-direction: column;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+.spinner-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 200px;
+}
+
+.question-text, .feedback-text {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  white-space: pre-wrap; // Preserves line breaks from AI
+  margin-bottom: 1.5rem;
+}
+
+button {
+  margin-top: 1rem;
+}

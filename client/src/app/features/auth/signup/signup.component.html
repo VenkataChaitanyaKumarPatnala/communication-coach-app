@@ -1,0 +1,50 @@
+<div class="signup-container">
+  <mat-card>
+    <div *ngIf="showOtpForm; else signupForm">
+      <mat-card-header>
+        <mat-card-title>Verify Your Email</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <p>An OTP has been sent.</p>
+        <form (ngSubmit)="onVerifyOtp()">
+          <mat-form-field appearance="outline">
+            <mat-label>Enter OTP</mat-label>
+            <input matInput type="text" [(ngModel)]="otp" name="otp" required />
+          </mat-form-field>
+          <button mat-raised-button color="primary" type="submit">Verify & Login</button>
+        </form>
+      </mat-card-content>
+    </div>
+
+    <ng-template #signupForm>
+      <mat-card-header>
+        <mat-card-title>Create Account</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <form (ngSubmit)="onSignup()">
+          <mat-form-field appearance="outline">
+            <mat-label>Name</mat-label>
+            <input matInput type="text" [(ngModel)]="name" name="name" required />
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Email</mat-label>
+            <input matInput type="email" [(ngModel)]="email" name="email" required />
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Password</mat-label>
+            <input matInput type="password" [(ngModel)]="password" name="password" required />
+          </mat-form-field>
+          <button mat-raised-button color="primary" type="submit">Sign Up</button>
+        </form>
+      </mat-card-content>
+      <mat-card-actions align="end">
+        <a routerLink="/login">Already have an account? Login</a>
+      </mat-card-actions>
+    </ng-template>
+
+    <div class="message-container">
+      <p *ngIf="errorMessage" class="error-message">{{ errorMessage }}</p>
+      <p *ngIf="successMessage" class="success-message">{{ successMessage }}</p>
+    </div>
+  </mat-card>
+</div>

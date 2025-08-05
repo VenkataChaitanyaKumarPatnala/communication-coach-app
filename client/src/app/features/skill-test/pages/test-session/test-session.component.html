@@ -1,0 +1,46 @@
+<div class="test-container">
+  <mat-card *ngIf="!isLoading && test">
+    <div *ngIf="!isFinished">
+      <mat-card-header>
+        <mat-card-title>{{ test.testType }} Test</mat-card-title>
+        <mat-card-subtitle>
+          Question {{ currentQuestionIndex + 1 }} of {{ test.questions.length }}
+        </mat-card-subtitle>
+      </mat-card-header>
+
+      <mat-progress-bar mode="determinate" [value]="progressValue"></mat-progress-bar>
+
+      <mat-card-content *ngIf="currentQuestion">
+        <h3 class="question-text">{{ currentQuestion.questionText }}</h3>
+        <mat-radio-group class="options-group" [(ngModel)]="userAnswers[currentQuestion._id]">
+          <mat-radio-button *ngFor="let option of currentQuestion.options" [value]="option">
+            {{ option }}
+          </mat-radio-button>
+        </mat-radio-group>
+      </mat-card-content>
+
+      <mat-card-actions align="end">
+        <button mat-raised-button color="primary" (click)="nextQuestion()" [disabled]="!userAnswers[currentQuestion._id]">
+          {{ currentQuestionIndex < test.questions.length - 1 ? 'Next' : 'Submit' }}
+        </button>
+      </mat-card-actions>
+    </div>
+
+    <div *ngIf="isFinished">
+      <mat-card-header>
+        <mat-card-title>Test Complete!</mat-card-title>
+      </mat-card-header>
+      <mat-card-content class="results-content">
+        <h2>Your Score:</h2>
+        <p class="score">{{ score | number:'1.0-0' }}%</p>
+      </mat-card-content>
+      <mat-card-actions align="end">
+        <button mat-raised-button color="primary" (click)="goBackToDashboard()">Back to Dashboard</button>
+      </mat-card-actions>
+    </div>
+  </mat-card>
+
+  <div *ngIf="isLoading" class="spinner-container">
+    <mat-spinner></mat-spinner>
+  </div>
+</div>

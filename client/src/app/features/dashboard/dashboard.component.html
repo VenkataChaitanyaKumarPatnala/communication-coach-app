@@ -1,0 +1,61 @@
+<div class="dashboard-layout">
+  <div class="sidebar">
+    <div class="header">
+      <h1>Practice HR Interviews</h1>
+    </div>
+
+    <div class="difficulty-selection">
+      <button mat-stroked-button (click)="showDifficultyButtons = true" *ngIf="!showDifficultyButtons">
+        Mock Interviews
+      </button>
+
+      <div *ngIf="showDifficultyButtons" class="difficulty-options">
+        <button mat-raised-button (click)="startNewInterview('Basic')">
+          Basic
+        </button>
+        <button mat-raised-button color="primary" (click)="startNewInterview('Intermediate')">
+          Intermediate
+        </button>
+        <button mat-raised-button color="accent" (click)="startNewInterview('Advanced')">
+          Advanced
+        </button>
+      </div>
+    </div>
+
+    <div class="sidebar-section">
+      <h2>Skill Tests</h2>
+      <div class="difficulty-options">
+        <button mat-raised-button (click)="startTest('Grammar')">Grammar</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="main-content">
+    <div class="view-toggle">
+      <button mat-button (click)="activeView = 'progress'" [class.active]="activeView === 'progress'">Progress</button>
+      <button mat-button (click)="activeView = 'history'" [class.active]="activeView === 'history'">History</button>
+    </div>
+
+    
+
+    <div *ngIf="activeView === 'history'">
+      <h2>Your History</h2>
+      <div *ngIf="interviewHistory.length > 0; else noHistory">
+        <mat-list role="list">
+          <mat-list-item *ngFor="let interview of interviewHistory" role="listitem">
+            <mat-icon matListItemIcon>history</mat-icon>
+            <div matListItemTitle>
+              {{ interview.difficulty }} Practice - {{ interview.createdAt | date:'medium' }}
+            </div>
+            <div matListItemLine>
+              {{ interview.answeredQuestionsCount }} questions answered
+            </div>
+          </mat-list-item>
+        </mat-list>
+      </div>
+      <ng-template #noHistory>
+        <p>Your practice history will appear here once you complete an interview.</p>
+      </ng-template>
+    </div>
+  </div>
+</div>

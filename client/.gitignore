@@ -1,0 +1,14 @@
+# Dependencies
+/node_modules
+/client/node_modules
+
+# Secrets
+.env
+/server/.env
+/client/.env
+
+# Build output
+/dist
+
+# Angular cache
+.angular/cache

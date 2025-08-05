@@ -1,0 +1,35 @@
+<div class="session-container">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Interview in Progress</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div *ngIf="isLoading" class="spinner-container">
+        <mat-spinner></mat-spinner>
+      </div>
+      
+      <div *ngIf="currentQuestion && !feedback && !isLoading">
+        <h3>Question:</h3>
+        <p class="question-text">{{ currentQuestion.question }}</p>
+        <form (ngSubmit)="submitAnswer()">
+          <mat-form-field appearance="outline">
+            <mat-label>Your Answer</mat-label>
+            <textarea matInput [(ngModel)]="userAnswer" name="userAnswer" rows="5" required></textarea>
+          </mat-form-field>
+          
+          <div class="action-buttons">
+            <button mat-raised-button color="primary" type="submit">Submit Answer</button>
+          </div>
+
+        </form>
+      </div>
+
+      <div *ngIf="feedback && !isLoading">
+        <h3>Feedback on Your Answer:</h3>
+        <p class="feedback-text">{{ feedback }}</p>
+        <button mat-raised-button color="accent" (click)="fetchNextQuestion()">Next Question</button>
+      </div>
+
+    </mat-card-content>
+  </mat-card>
+</div>

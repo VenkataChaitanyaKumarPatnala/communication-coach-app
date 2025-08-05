@@ -1,0 +1,15 @@
+.profile-container {
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
+}
+
+mat-card {
+  width: 100%;
+  max-width: 500px;
+}
+
+mat-list-item {
+  display: flex;
+  justify-content: space-between;
+}

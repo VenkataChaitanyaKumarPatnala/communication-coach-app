@@ -1,0 +1,2 @@
+# communication-coach-app
+SpeakUp: An AI-powered web app to master communication skills. Practice for HR interviews with AI-generated questions and instant feedback. Sharpen your grammar with skill tests and track your progress on a personalized dashboard. Built with Angular & Node.js.
